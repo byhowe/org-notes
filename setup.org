@@ -1,2 +1,0 @@
-#+latex_header: \input{structure.tex}
-#+options: toc:nil title:nil
