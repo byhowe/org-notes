@@ -1,0 +1,35 @@
+% DOCUMENT MARGINS
+\usepackage{geometry}
+\geometry{
+paper=a4paper, % SET PAPER TYPE
+landscape,     % SET LANDSCAPE
+twocolumn,     % SET TWO COLUMN
+includehead,   % ALLOW HEADER
+includefoot,   % ALLOW FOOTER
+nomarginpar,   % NO MARGIN NOTES
+% MARGINS
+top=0.50in,
+bottom=0.40in,
+left=0.50in,
+right=0.50in,
+footskip=0.45in
+}
+
+% HEADER AND FOOTER
+\usepackage{titling}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\fancyhead[R]{\leftmark}
+\fancyhead[L]{\thetitle}
+\fancyfoot[C]{\thepage} % PRINT PAGE NUMBERS IN THE FOOTER
+\fancyfoot[L]{\theauthor}
+\fancyfoot[R]{\thedate}
+
+% MATH
+\usepackage{pifont} % \ding{114}
+\usepackage{amsthm}
+\newcommand{\definitionsymbol}{\ding{114}}
+\newtheorem*{remark}{Remark}
