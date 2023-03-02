@@ -31,5 +31,20 @@ footskip=0.45in
 % MATH
 \usepackage{pifont} % \ding{114}
 \usepackage{amsthm}
-\newcommand{\definitionsymbol}{\ding{114}}
-\newtheorem*{remark}{Remark}
+\usepackage{amsfonts}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\notesym}{\ding{114}}
+\newcommand{\notecolor}{\color{MidnightBlue}}
+
+% DEFINITION ENVIRONMENT
+\newtheoremstyle{note}% 〈name〉
+{3pt}% 〈Space above〉1
+{0.1in}% 〈Space below 〉1
+{}% 〈Body font〉
+{}% 〈Indent amount〉2
+{\bfseries}% 〈Theorem head font〉
+{}% 〈Punctuation after theorem head 〉
+{.5em}% 〈Space after theorem head 〉3
+{\notecolor\notesym\thmnote{ #3 }\color{} --}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+\theoremstyle{note}
+\newtheorem*{note}{}
