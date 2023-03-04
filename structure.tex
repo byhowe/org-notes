@@ -37,7 +37,7 @@ footskip=0.45in
 \newcommand{\notecolor}{\color{SpringGreen4}}
 \newcommand{\defncolor}{\color{Firebrick3}}
 
-% DEFINITION ENVIRONMENT
+% DEFINING ENVIRONMENTS
 \newtheoremstyle{note}% 〈name〉
 {3pt}% 〈Space above〉1
 {0.1in}% 〈Space below 〉1
@@ -46,8 +46,17 @@ footskip=0.45in
 {\bfseries}% 〈Theorem head font〉
 {}% 〈Punctuation after theorem head 〉
 {.5em}% 〈Space after theorem head 〉3
-{\thmname{#1}\notesym\thmnote{ #3 }\color{}--}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+{\notecolor\notesym\thmnote{ #3 }\color{}--}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
 
-\theoremstyle{note}
-\newtheorem*{note}{\notecolor}
-\newtheorem*{defn}{\defncolor}
+\newtheoremstyle{defn}% 〈name〉
+{3pt}% 〈Space above〉1
+{0.1in}% 〈Space below 〉1
+{}% 〈Body font〉
+{}% 〈Indent amount〉2
+{\bfseries}% 〈Theorem head font〉
+{}% 〈Punctuation after theorem head 〉
+{.5em}% 〈Space after theorem head 〉3
+{\defncolor\notesym\thmname{ #1 }\color{}--\thmnote{ \textbf#3 }\\}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
+\theoremstyle{note}\newtheorem*{note}{}
+\theoremstyle{defn}\newtheorem*{defn}{Definition}
