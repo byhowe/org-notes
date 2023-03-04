@@ -32,9 +32,10 @@ footskip=0.45in
 \usepackage{pifont} % \ding{114}
 \usepackage{amsthm}
 \usepackage{amsfonts}
-\usepackage[dvipsnames]{xcolor}
+\usepackage[x11names]{xcolor}
 \newcommand{\notesym}{\ding{114}}
-\newcommand{\notecolor}{\color{MidnightBlue}}
+\newcommand{\notecolor}{\color{SpringGreen4}}
+\newcommand{\defncolor}{\color{Firebrick3}}
 
 % DEFINITION ENVIRONMENT
 \newtheoremstyle{note}% 〈name〉
@@ -45,6 +46,8 @@ footskip=0.45in
 {\bfseries}% 〈Theorem head font〉
 {}% 〈Punctuation after theorem head 〉
 {.5em}% 〈Space after theorem head 〉3
-{\notecolor\notesym\thmnote{ #3 }\color{} --}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+{\thmname{#1}\notesym\thmnote{ #3 }\color{}--}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
 \theoremstyle{note}
-\newtheorem*{note}{}
+\newtheorem*{note}{\notecolor}
+\newtheorem*{defn}{\defncolor}
