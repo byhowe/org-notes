@@ -3,7 +3,7 @@
 #+options:             toc:nil title:nil num:nil
 
 #+name: structure
-#+begin_src latex :noweb yes
+#+begin_src latex :noweb yes :exports none
 \documentclass{article}
 [DEFAULT-PACKAGES]
 % DOCUMENT MARGINS
@@ -36,7 +36,7 @@ headheight=0.0in,
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.3pt}
-\fancyhead[R]{\thetitle}
+\fancyhead[R]{\thesubtitle}
 \fancyfoot[C]{\thepage} % PRINT PAGE NUMBERS IN THE FOOTER
 \fancyfoot[L]{\theauthor}
 \fancyfoot[R]{\thedate}
@@ -73,8 +73,6 @@ headheight=0.0in,
 
 \theoremstyle{note}\newtheorem*{note}{}
 \theoremstyle{defn}\newtheorem*{defn}{Definition}
-
-\usepackage{lipsum}
 #+end_src
 
 #+name: setup
