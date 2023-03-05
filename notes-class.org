@@ -1,3 +1,11 @@
+#+latex_class:         notes
+#+latex_class_options: [a4paper,10pt]
+#+options:             toc:nil title:nil num:nil
+
+#+name: structure
+#+begin_src latex :noweb yes
+\documentclass{article}
+[DEFAULT-PACKAGES]
 % DOCUMENT MARGINS
 \usepackage{geometry}
 \geometry{
@@ -12,8 +20,14 @@ top=0.50in,
 bottom=0.40in,
 left=0.50in,
 right=0.50in,
-footskip=0.45in
+footskip=0.45in,
+headheight=0.0in,
 }
+
+% COMPACT TITLES
+%\usepackage{titlesec}
+%\titleformat{\section}
+%  {\normalfont\normalsize\bfseries}{\thesection.}{1em}{}
 
 % HEADER AND FOOTER
 \usepackage{titling}
@@ -22,8 +36,7 @@ footskip=0.45in
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.3pt}
-\fancyhead[R]{\leftmark}
-\fancyhead[L]{\thetitle}
+\fancyhead[R]{\thetitle}
 \fancyfoot[C]{\thepage} % PRINT PAGE NUMBERS IN THE FOOTER
 \fancyfoot[L]{\theauthor}
 \fancyfoot[R]{\thedate}
@@ -60,3 +73,23 @@ footskip=0.45in
 
 \theoremstyle{note}\newtheorem*{note}{}
 \theoremstyle{defn}\newtheorem*{defn}{Definition}
+
+\usepackage{lipsum}
+#+end_src
+
+#+name: setup
+#+begin_src emacs-lisp :exports results :results none :var structure=structure
+(require 'ox-latex)
+
+(setq org-latex-subtitle-separate t
+      org-latex-subtitle-format "\\newcommand{\\thesubtitle}{\\\\\\medskip\n\\large %s}")
+(add-to-list
+ 'org-latex-classes
+ `("notes"
+   ,structure
+   ("\\section{%s}" . "\\section*{%s}")
+   ("\\subsection{%s}" . "\\subsection*{%s}")
+   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+#+end_src
