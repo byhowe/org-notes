@@ -56,6 +56,7 @@ headheight=0.16in,
 \newcommand{\notesym}{\ding{114}}
 \newcommand{\notecolor}{\color{SpringGreen4}}
 \newcommand{\defncolor}{\color{Firebrick3}}
+\newcommand{\thrmcolor}{\color{RoyalBlue3}}
 
 % DEFINING ENVIRONMENTS
 \newtheoremstyle{note}% 〈name〉
@@ -76,10 +77,21 @@ headheight=0.16in,
 {\bfseries}% 〈Theorem head font〉
 {}% 〈Punctuation after theorem head 〉
 {.5em}% 〈Space after theorem head 〉3
-{\defncolor\notesym\thmname{ #1 }\color{}\normalfont{---}\thmnote{ \textbf#3}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+{\defncolor\notesym\thmname{ #1 }\color{}\normalfont{---}\thmnote{ \textbf{#3}}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
+\newtheoremstyle{thrm}% 〈name〉
+{3pt}% 〈Space above〉1
+{0.1in}% 〈Space below 〉1
+{}% 〈Body font〉
+{}% 〈Indent amount〉2
+{\bfseries}% 〈Theorem head font〉
+{}% 〈Punctuation after theorem head 〉
+{.5em}% 〈Space after theorem head 〉3
+{\thrmcolor\notesym\thmname{ #1 }\color{}\normalfont{---}\thmnote{ \textbf{#3}}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
 
 \theoremstyle{note}\newtheorem*{note}{}
 \theoremstyle{defn}\newtheorem*{defn}{Definition}
+\theoremstyle{thrm}\newtheorem*{thrm}{Theorem}
 #+end_src
 
 #+name: setup
@@ -89,6 +101,7 @@ headheight=0.16in,
 (setq org-list-allow-alphabetical 't)
 (org-element-update-syntax)
 (setq org-latex-subtitle-separate 't
+      ;; Assign the subtitle to a command so we can use it in the header
       org-latex-subtitle-format "\\newcommand{\\thesubtitle}{\\\\\\medskip\n\\large %s}")
 (add-to-list
  'org-latex-classes
