@@ -110,6 +110,9 @@ headheight=0.16in,
 #+name: setup
 #+begin_src emacs-lisp :exports results :results none :var structure=structure
 (require 'ox-latex)
+(require 'ox-extra)
+
+(ox-extras-activate '(ignore-headlines))
 
 (setq org-list-allow-alphabetical 't)
 (org-element-update-syntax)
