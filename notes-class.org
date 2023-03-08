@@ -55,8 +55,9 @@ headheight=0.16in,
 \usepackage[x11names]{xcolor}
 \newcommand{\notesym}{\ding{114}}
 \newcommand{\notecolor}{\color{SpringGreen4}}
-\newcommand{\defncolor}{\color{Firebrick3}}
-\newcommand{\thrmcolor}{\color{RoyalBlue3}}
+\newcommand{\definitioncolor}{\color{Firebrick3}}
+\newcommand{\theoremcolor}{\color{RoyalBlue3}}
+\newcommand{\examplecolor}{\color{Coral4}}
 
 % DEFINING ENVIRONMENTS
 \newtheoremstyle{note}% 〈name〉
@@ -67,9 +68,9 @@ headheight=0.16in,
 {\bfseries}% 〈Theorem head font〉
 {}% 〈Punctuation after theorem head 〉
 {.5em}% 〈Space after theorem head 〉3
-{\notecolor\notesym\thmnote{ #3 }\color{}\normalfont{---}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+{\notecolor\notesym\thmnote{ #3}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
 
-\newtheoremstyle{defn}% 〈name〉
+\newtheoremstyle{definition}% 〈name〉
 {3pt}% 〈Space above〉1
 {0.1in}% 〈Space below 〉1
 {}% 〈Body font〉
@@ -77,9 +78,9 @@ headheight=0.16in,
 {\bfseries}% 〈Theorem head font〉
 {}% 〈Punctuation after theorem head 〉
 {.5em}% 〈Space after theorem head 〉3
-{\defncolor\notesym\thmname{ #1 }\color{}\normalfont{---}\thmnote{ \textbf{#3}}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+{\definitioncolor\notesym\thmnote{ #3}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
 
-\newtheoremstyle{thrm}% 〈name〉
+\newtheoremstyle{theorem}% 〈name〉
 {3pt}% 〈Space above〉1
 {0.1in}% 〈Space below 〉1
 {}% 〈Body font〉
@@ -87,11 +88,23 @@ headheight=0.16in,
 {\bfseries}% 〈Theorem head font〉
 {}% 〈Punctuation after theorem head 〉
 {.5em}% 〈Space after theorem head 〉3
-{\thrmcolor\notesym\thmname{ #1 }\color{}\normalfont{---}\thmnote{ \textbf{#3}}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+{\theoremcolor\notesym\thmname{ #1}\color{}\thmnote{ \textbf{#3}}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
+\newtheoremstyle{example}% 〈name〉
+{3pt}% 〈Space above〉1
+{0.1in}% 〈Space below 〉1
+{}% 〈Body font〉
+{}% 〈Indent amount〉2
+{\bfseries}% 〈Theorem head font〉
+{}% 〈Punctuation after theorem head 〉
+{.5em}% 〈Space after theorem head 〉3
+{\examplecolor\notesym\thmname{ #1}}}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
 
 \theoremstyle{note}\newtheorem*{note}{}
-\theoremstyle{defn}\newtheorem*{defn}{Definition}
-\theoremstyle{thrm}\newtheorem*{thrm}{Theorem}
+\theoremstyle{definition}\newtheorem*{definition}{Definition}
+\theoremstyle{theorem}\newtheorem*{theorem}{Theorem}
+\theoremstyle{example}\newtheorem*{exampl}{Example}
 #+end_src
 
 #+name: setup
